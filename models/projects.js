@@ -4,11 +4,11 @@ const reviewSchema = require(`./reviews.js`)
 // Create a schema to define the properties of the project collection
 
 const projectSchema = new mongoose.Schema({
-    Title: { type: String, required: true },
-    Category: {type: String, default: `Unknown`},
-    Photo: {type: String, required: true},
-    Description: {type: String, required: true},
-    Status: {type: Boolean, default: false},
+    title: { type: String, required: true },
+    category: {type: String, default: `Unknown`},
+    photo: {type: String, required: true},
+    description: {type: String, required: true},
+    status: {type: Boolean, default: false},
     reviews: [reviewSchema]
 });
     

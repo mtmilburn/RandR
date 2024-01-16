@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: 'R and R'}) %>
+    <link rel="stylesheet" href="/styles/projects.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <section class="project-title">
+        <h2>Projects</h2>
+        <h3>Some of my past accomplishments</h3>
+    </section>
+
+    <main>
+        <section class="past-projects">
+            <ul>
+                <% for (let project of projects) { %>
+                <li>
+                    <figure>
+                        <img src="<%= projects.photo %>">
+                        <figcaption>
+                            <h4><%= projects.title %></h4>
+                            <a href="/projects/<%= projects._id %>">Get details/leave reviews</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+
+    
+</body>
+
+</html>

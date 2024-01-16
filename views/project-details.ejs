@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: `${projects.name} | R and R`}) %>
+    <link rel="stylesheet" href="/styles/project-details.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div>
+        <h2 class="project-title"><%= projects.title %></h2>
+        <img src="<%= projects.photo %>">
+        <section>
+            <p><strong>Description:</strong> <%= projects.description %></p>
+            <p><strong>Possible uses</strong> <%= projects.category></p>
+            <p><strong>Species:</strong> <%= pet.species %></p>
+            <p><strong>Location:</strong> <%= `${pet.city}, ${pet.state}` %></p>
+            <p><strong>Description:</strong> <%= pet.description %></p>
+        </section>
+    </div>
+
+   
+</body>
+
+</html>
