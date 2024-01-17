@@ -8,7 +8,7 @@ const projectSchema = new mongoose.Schema({
     category: {type: String, default: `Unknown`},
     photo: {type: String, required: true},
     description: {type: String, required: true},
-    status: {type: Boolean, default: false},
+    status: {type: String},
     reviews: [reviewSchema]
 });
     

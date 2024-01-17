@@ -13,5 +13,5 @@ db.on('connected', function () {
 // Export models & seed data
 module.exports = {
     Project: require(`./projects.js`),
-    // seedProjects: require(`./seed.js`)
+    seedProjects: require(`./seed.js`)
 }
