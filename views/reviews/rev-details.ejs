@@ -10,14 +10,14 @@
     <%- include('../partials/nav.ejs') %>
 
     <section class="application">
-        <h1>Name: <%= reviews.name %></h1>
+        <h1>Name: <%= review.name %></h1>
         <table>
             <tr>
                 <th>
                     <h2>Email:</h2>
                 </th>
                 <td>
-                    <h2><%= reviews.applicantEmail %></h2>
+                    <h2><%= review.applicantEmail %></h2>
                 </td>
             </tr>
             <tr>
@@ -25,7 +25,7 @@
                     <h2>Rating</h2>
                 </th>
                 <td>
-                    <h2><%= reviews.rating %></h2>
+                    <h2><%= review.rating %></h2>
                 </td>
             </tr>
             <tr>
@@ -33,13 +33,13 @@
                     <h2>Comment:</h2>
                 </th>
                 <td>
-                    <h2><%= reviews.comment %></h2>
+                    <h2><%= review.comment %></h2>
                 </td>
             </tr>
             
         </table>
 
-        <form method="POST" action="/reviews/<%= reviews._id %>?_method=DELETE">
+        <form method="POST" action="/reviews/<%= review._id %>?_method=DELETE">
             <input class="btn" type="submit" value="Delete" />
         </form>
     </section>

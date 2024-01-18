@@ -21,7 +21,7 @@ const db = require('../models')
 // Index Route (GET/Read): Will display all projects
 router.get(`/`, async function(req, res) {
     const projects = await db.Project.find({})
-    res.render(`projects/project-index`, { projects: projects })
+    res.render(`projects/projects-index`, { projects: projects })
 })
 
 // Create Route (POST/Create): This route receives the POST request sent from the new route,
@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
 // New Route (GET/Read): This route renders a form 
 // which the user will fill out to POST (create) a new location
 router.get('/new', (req, res) => {
-    res.render (`new-form`)
+    res.render (`projects/new-form`)
 })
 
 // Show Route (GET/Read): Will display an individual pet document
@@ -44,7 +44,7 @@ router.get('/new', (req, res) => {
 router.get('/:id', function (req, res) {
     db.Project.findById(req.params.id)
         .then(projects => {
-            res.render('project-details', {
+            res.render('projects-details', {
                 projects: projects
             })
         })

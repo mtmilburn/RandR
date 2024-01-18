@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head.ejs', {title: 'R and R'}) %>
+    <%- include('./partials/head-tag.ejs', {title: 'R and R'}) %>
     <!-- <link rel="stylesheet" href="/styles/projects.css"> -->
 </head>
 
@@ -20,10 +20,10 @@
                 <% for (let project of projects) { %>
                 <li>
                     <figure>
-                        <img src="<%= projects.photo %>">
+                        <img src="<%= project.photo %>">
                         <figcaption>
-                            <h4><%= projects.title %></h4>
-                            <a href="/projects/<%= projects._id %>">Get details/leave reviews</a>
+                            <h4><%= project.title %></h4>
+                            <a href="/projects/<%= project._id %>">Get details/leave reviews</a>
                         </figcaption>
                     </figure>
                 </li>

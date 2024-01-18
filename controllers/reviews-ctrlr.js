@@ -45,7 +45,7 @@ router.get('/:id', (req, res) => {
         .then(projects => {
             // format query results to appear in one object, 
             // rather than an object containing an array of one object
-            res.json(projects.applications[0])
+            res.render(projects.applications[0])
         })
     });
 
@@ -63,7 +63,7 @@ router.get('/new/:projectId', (req, res) => {
             { $pull: { reviews: { _id: req.params.id } } },
             { new: true }
             )
-            .then(projects => res.json(projects))
+            .then(projects => res.redirect(projects))
         });
         // Create Route: POST localhost:3000/applications/
         router.post('/create/:projectsId', (req, res) => {
@@ -72,7 +72,7 @@ router.get('/new/:projectId', (req, res) => {
                 { $push: { reviews: req.body } },
                 { new: true }
             )
-                .then(projects => res.json(projects))
+                .then(projects => res.redirect(projects))
         });
 
 

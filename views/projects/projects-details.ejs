@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head-tag.ejs', {title: `${projects.name} | R and R`}) %>
+    <!-- <link rel="stylesheet" href="/styles/project-details.css"> -->
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div>
+        <h2 class="project-title"><%= project.title %></h2>
+        <img src="<%= project.photo %>">
+        <section>
+            <p><strong>Description:</strong> <%= project.description %></p>
+            <p><strong>Possible uses</strong> <%= project.category></p>
+            <p><strong>photo:</strong> <%= project.photo %></p>
+            <p><strong>status:</strong> <%= project.status %></p>
+            
+        </section>
+        <section class="actions">
+            <button class="btn"><a href="/projects/<%= project._id %>/edit">Edit</a></button>
+            <form method="POST" action="/projects/<%= project._id %>?_method=DELETE">
+                <input class="btn" type="submit" value="Delete" />
+            </form>
+        </section>
+        
+    </div>
+
+   
+</body>
+
+</html>

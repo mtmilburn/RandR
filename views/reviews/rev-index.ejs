@@ -12,9 +12,9 @@
             <ul>
                 <% for (let review of reviews) { %>
                 <li>
-                    <h4><%= reviews.name %> </h4>
-                    <p>Created: <%= reviews.comment %></p>
-                    <a href="/reviews/<%= reviews._id %>">Read More</a>
+                    <h4><%= review.name %> </h4>
+                    <p>Created: <%= review.comment %></p>
+                    <a href="/reviews/<%= review._id %>">Read More</a>
                 </li>
                <% } %>
             </ul>

@@ -50,8 +50,9 @@ app.use(methodOverride('_method'));
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Mount Routes~~~~~~~~~~~~~~~~~~~~~~~~~~
 //home page
 app.get('/', function (req, res) {
-    db.Project.find({ photo: true })
+    db.Project.find({})
         .then(projects => {
+            console.log(projects)
             res.render('home', {
                 projects: projects
             })
@@ -72,16 +73,16 @@ app.get('/seed', async (req, res) => {
                 res.json(newProjects)
             })
     
+app.get('/:id', function (req, res){
+    db.Project.findById(req.params.id)
+    .then(projects => {
+        res.render('projects-details', {
+            projects: projects
+        })
+    })
+})
 
 
-// This tells our app to look at the `controllers/projects.js`
-// to handle all routes that begin with `localhost:3000/projects`
- app.use('/projects', projectsCtrlr)
-
- // This tells our app to look at the `controllers/reviews.js` file
-// to handle all routes that begin with `localhost:3000/reviews`
-app.use('/reviews', reviewsCtrlr)
-// The "catch-all" route: Runs for any other URL that doesn't match the above routes
 app.get('*', function (req, res) {
     res.send('404 Error: Page Not Found')
 });

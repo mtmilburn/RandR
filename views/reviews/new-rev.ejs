@@ -11,10 +11,10 @@
 
     <section class="hero">
         <h2>Review Form</h2>
-        <h4><i>this review is for <a href="/projects/<%= projects._id %>"><%= projects.title %></a></i></h4>
+        <h4><i>this review is for <a href="/projects/<%= project._id %>"><%= projects.title %></a></i></h4>
     </section>
 
-    <form action="/reviews/create/<%= projects._id %>" method="POST">
+    <form action="/reviews/create/<%= project._id %>" method="POST">
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" required><br>
 

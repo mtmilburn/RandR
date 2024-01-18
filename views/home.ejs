@@ -26,14 +26,14 @@
                 <% for (let project of projects) { %>
                 <li>
                     <figure>
-                        <img src="<%= projects.photo %>" alt="furniture">
+                        <img src="<%= project.photo %>" alt="furniture">
                     </figure>
                     <figcaption>
                         <div class="project-info">
-                            <h3><%= projects.title %></h3>
-                            <p>status: <%= projects.status %> </p>
+                            <h3><%= project.title %></h3>
+                            <p>status: <%= project.status %> </p>
                         </div>
-                        <a href="/projects/<%= projects._id %>" class="btn">Learn More</a>
+                        <a href="/projects/<%= project._id %>" class="btn">Learn More</a>
                     </figcaption>
                 </li>
                 <% } %>
