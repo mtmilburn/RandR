@@ -3,7 +3,7 @@
 
 <head>
     <%- include('./partials/head.ejs', {title: `${projects.name} | R and R`}) %>
-    <link rel="stylesheet" href="/styles/project-details.css">
+    <!-- <link rel="stylesheet" href="/styles/project-details.css"> -->
 </head>
 
 <body>
@@ -19,6 +19,13 @@
             <p><strong>Location:</strong> <%= `${pet.city}, ${pet.state}` %></p>
             <p><strong>Description:</strong> <%= pet.description %></p>
         </section>
+        <section class="actions">
+            <button class="btn"><a href="/projects/<%= projects._id %>/edit">Edit</a></button>
+            <form method="POST" action="/projects/<%= projects._id %>?_method=DELETE">
+                <input class="btn" type="submit" value="Delete" />
+            </form>
+        </section>
+        
     </div>
 
    

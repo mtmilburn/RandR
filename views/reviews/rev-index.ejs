@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head-tag.ejs', {title: 'Reviews | R&R'}) %>
+   
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+    <main>
+        <section>
+            <ul>
+                <% for (let review of reviews) { %>
+                <li>
+                    <h4><%= reviews.name %> </h4>
+                    <p>Created: <%= reviews.comment %></p>
+                    <a href="/reviews/<%= reviews._id %>">Read More</a>
+                </li>
+               <% } %>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

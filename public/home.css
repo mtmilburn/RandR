@@ -1,0 +1,58 @@
+.logo {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.grid {
+    background-color: #f7f7f7;
+    padding: 2rem
+}
+
+.grid h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.project-grid li {
+    width: calc(33% - 1rem);
+    min-width: 300px;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+figure {
+    height: 70%;
+}
+
+.project-grid img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+figcaption {
+    height: 30%;
+    padding: 1rem 2rem 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.project-info h3 {
+    font-size: calc(1em + 0.5vw);
+}
+
+.project-info p {
+    font-size: calc(0.5rem + 0.5vw);
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head-tag.ejs', {title: 'Create an Application | Furever Friends'}) %>
+    <!-- <link rel="stylesheet" href="/styles/project-form.css"> -->
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <section class="hero">
+        <h2>Review Form</h2>
+        <h4><i>this review is for <a href="/projects/<%= projects._id %>"><%= projects.title %></a></i></h4>
+    </section>
+
+    <form action="/reviews/create/<%= projects._id %>" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="applicantEmail">Email:</label><br>
+        <input type="email" id="applicantEmail" name="applicantEmail" ><br>
+
+        <label for="comments">comments:</label><br>
+        <textarea id="comment" name="comment" required></textarea><br>
+
+        <label for="rating">what rating would you give us:</label><br>
+        <input type="number" id="rating" name="rating" min="1" value="0"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+   
+</body>
+
+</html>

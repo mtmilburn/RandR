@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head-tag.ejs', {title: 'My Applications | Furever Friends'}) %>
+    <!-- <link rel="stylesheet" href="/styles/app-details.css"> -->
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <section class="application">
+        <h1>Name: <%= reviews.name %></h1>
+        <table>
+            <tr>
+                <th>
+                    <h2>Email:</h2>
+                </th>
+                <td>
+                    <h2><%= reviews.applicantEmail %></h2>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h2>Rating</h2>
+                </th>
+                <td>
+                    <h2><%= reviews.rating %></h2>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h2>Comment:</h2>
+                </th>
+                <td>
+                    <h2><%= reviews.comment %></h2>
+                </td>
+            </tr>
+            
+        </table>
+
+        <form method="POST" action="/reviews/<%= reviews._id %>?_method=DELETE">
+            <input class="btn" type="submit" value="Delete" />
+        </form>
+    </section>
+
+    
+</body>
+
+</html>
