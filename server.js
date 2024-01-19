@@ -7,6 +7,7 @@ const livereload = require("livereload");
 const connectLiveReload = require("connect-livereload");
 const methodOverride = require('method-override');
 
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Require the db connections/models/seeds~
 
 const db = require('./models');
@@ -14,8 +15,8 @@ const db = require('./models');
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Require the routes in the controllers folder
 
 const projectsCtrlr = require(`./controllers/projects-ctrlr`);
-// const projects = require('./models/projects');
-const reviewsCtrlr = require('./controllers/reviews-ctrlr')
+const reviewsCtrlr = require('./controllers/reviews-ctrlr');
+const projects = require('./models/projects');
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Create Express app~~~~~~~~~~~~~~~~~~~
 
 const app = express();
@@ -48,6 +49,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Mount Routes~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 //home page
 app.get('/', function (req, res) {
     db.Project.find({})
@@ -73,13 +76,56 @@ app.get('/seed', async (req, res) => {
                 res.json(newProjects)
             })
     
-app.get('/:id', function (req, res){
+//go to new project form page
+app.get('/projects/new', (req, res) => {
+    res.render('projects/new-form')
+})
+
+//actually creating a new project
+app.post('/projects', (req, res) => {
+    db.Project.create(req.body)
+    .then(projects => res.redirect('/projects/' + projects._id))
+})
+//show the specific project/furniture page
+app.get('/projects/:id', (req, res) => {
     db.Project.findById(req.params.id)
-    .then(projects => {
-        res.render('projects-details', {
-            projects: projects
-        })
+    .then(project => res.render('projects/projects-details', {
+        project: project
     })
+    )
+})
+
+//editing the individual projects info
+app.put('/projects/:id', (req, res) => {
+    db.Project.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+    )
+        .then(project => res.redirect('/projects/' + project._id))
+})
+
+//getting the the form for the edit of the project
+app.get('/projects/:id/edit', (req, res) => { 
+    db.Project.findById(req.params.id)
+    .then(project => res.render('projects/edit-form', { project: project }))
+})
+
+//delete the project
+app.delete('/projects/:id', (req, res) => {
+    db.Project.findByIdAndDelete(req.params.id)
+    .then(() => res.redirect('/projects'))
+})
+
+//add review
+app.get('/reviews/new-rev/:projectId', (req, res) => {
+    db.Project.find(req.body)
+    .then(project => res.render('./reviews/new-rev'))
+})
+
+app.post('/', (req, res) => {
+    db.Project.create(req.body)
+    .then(project => res.redirect('/projects-details' + project._id))
 })
 
 
@@ -93,3 +139,5 @@ app.get('*', function (req, res) {
 app.listen(process.env.PORT, function () {
     console.log('Express is listening to port', process.env.PORT);
 });
+
+

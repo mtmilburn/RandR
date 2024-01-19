@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head-tag.ejs', {title: 'Add a New Project'}) %>
-    <!-- <link rel="stylesheet" href="/styles/project-form.css"> -->
+    <%- include('../partials/head-tag.ejs', {title: 'Add a New Project'}) %>
+    <link rel="stylesheet" href="/styles/project-form.css">
 </head>
 
 <body>
-    <%- include('./partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs') %>
 
     <section class="project-person">
         <h2>Create a Project</h2>
@@ -16,7 +16,7 @@
 
     <form method="POST" action="/projects">
         <!-- Title input -->
-        <label for="title">Project title:</label>
+        <label for="title">Project title*:</label>
         <input type="text" id="title" name="title" required>
         <br>
         <!-- Category input -->
@@ -25,14 +25,14 @@
         <br>
         <!-- Status input -->
         <label for="status">status:</label>
-        <input type="text" id="status" name="status" value="Unknown">
+        <input type="text" id="status" name="status" >
         <br>
         <!-- Photo input -->
-        <label for="photo">Photo (URL):</label>
+        <label for="photo">Photo (URL)*:</label>
         <input type="text" id="photo" name="photo" required>
         <br>
         <!-- Description input -->
-        <label for="description">Description:</label>
+        <label for="description">Description*:</label>
         <textarea id="description" name="description" required></textarea>
         <br>
         <input type="submit" value="Create Project">

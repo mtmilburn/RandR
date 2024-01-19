@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scrollbar-color: #333;
+    scrollbar-width: 10px;
+}
+
+*::-webkit-scrollbar {
+    visibility: hidden;
+    width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 2px;
+}
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h1 a:hover {
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li:not(:last-child) {
+    margin-right: 1rem;
+}
+
+nav a {
+    font-size: 1.2rem;
+}

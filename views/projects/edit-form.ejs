@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head-tag.ejs', {title: `Edit ${projects.title} | R and R`}) %>
-    <!-- <link rel="stylesheet" href="/styles/project-form.css"> -->
+    <%- include('../partials/head-tag.ejs', {title: `Edit ${project.title} | R and R`}) %>
+    <link rel="stylesheet" href="/styles/project-form.css">
 </head>
 
 <body>
-    <%- include('./partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs') %>
 
     <section class="project-person">
         <h2>Edit a Project</h2>
@@ -16,24 +16,19 @@
 
     <form method="POST" action="/projects/<%= project._id %>?_method=PUT">
         <!-- Title input -->
-        <label for="title">Project title:</label>
-        <input type="text" id="title" name="title" required>
+       <h2><%= project.title %></h2> 
         <br>
         <!-- Category input -->
         <label for="category">Category:</label>
-        <input type="text" id="category" name="category" min="0" required>
+        <input type="text" id="category" name="category" value='<%=project.category%>'min="0">
         <br>
         <!-- Status input -->
-        <label for="status">status:</label>
-        <input type="text" id="status" name="status" value="Unknown">
-        <br>
-        <!-- Photo input -->
-        <label for="photo">Photo (URL):</label>
-        <input type="text" id="photo" name="photo" required>
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" value='<%=project.status%>'required>
         <br>
         <!-- Description input -->
         <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea>
+        <textarea id="description" name="description" value='<%=project.description%>'required></textarea>
         <br> 
         <input type="submit" value="Edit Project">
     </form>

@@ -1,6 +1,28 @@
+.about {
+    background-color: #fff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bolder;
+}
+
+
 .logo {
-    max-height: 20px;
-    max-width: 20px;
+    max-height: 200px;
+    max-width: 200px;
+    
 }
 
 .grid {
@@ -56,3 +78,8 @@ figcaption {
 .project-info p {
     font-size: calc(0.5rem + 0.5vw);
 }
+
+
+/* @media only screen and (min-width:500px){
+    img: none;
+} */
