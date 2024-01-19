@@ -21,15 +21,6 @@ const projects = require('./models/projects');
 
 const app = express();
 
-//~~~~~~~~~~~~~~~~~~~~~~~~Configure the app to refresh when nodemon restarts
-
-const liveReloadServer = livereload.createServer();
-liveReloadServer.server.once("connection", () => {
-    // wait for nodemon to fully restart before refreshing the page
-    setTimeout(() => {
-        liveReloadServer.refresh("/");
-    }, 100);
-});
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Configure the app (app.set)~~~~~~~~~~
 
@@ -38,8 +29,23 @@ app.set('views', path.join(__dirname, 'views'));
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Middleware (app.use)~~~~~~~~~~~~~~~~~~
 
+
+
+// Detect if running in a dev environment
+if (process.env.ON_HEROKU === 'false') {
+    // Configure the app to refresh the browser when nodemon restarts
+    const liveReloadServer = livereload.createServer();
+    liveReloadServer.server.once("connection", () => {
+        // wait for nodemon to fully restart before refreshing the page
+        setTimeout(() => {
+            liveReloadServer.refresh("/");
+        }, 100);
+    });
+    app.use(connectLiveReload());
+}
+
+
 app.use(express.static('public'))
-app.use(connectLiveReload());
 
 // Body parser: used for POST/PUT/PATCH routes: 
 // this will take incoming strings from the body that are URL encoded and parse them 
@@ -65,6 +71,8 @@ app.get('/', function (req, res) {
 app.get('/projects', function (req, res) {
     res.redirect('/')
 });
+
+if (process.env.ON_HEROKU === 'false') {
 // When a GET request is sent to `/seed`, the projects collection is seeded
 app.get('/seed', async (req, res) => {
     // Remove any existing projects
@@ -75,7 +83,7 @@ app.get('/seed', async (req, res) => {
                 console.log(`Added ${newProjects.length} `)
                 res.json(newProjects)
             })
-    
+        }
 //go to new project form page
 app.get('/projects/new', (req, res) => {
     res.render('projects/new-form')
