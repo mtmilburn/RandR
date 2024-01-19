@@ -128,7 +128,7 @@ app.delete('/projects/:id', (req, res) => {
 //add review
 app.get('/reviews/new-rev/:projectId', (req, res) => {
     db.Project.find(req.body)
-    .then(project => res.render('./reviews/new-rev'))
+    .then(project => res.render('reviews/new-rev', {project: project}))
 })
 
 app.post('/', (req, res) => {
