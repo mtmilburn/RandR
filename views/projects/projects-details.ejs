@@ -12,12 +12,10 @@
     <div>
         <h2 class="project-title"><%= project.title %></h2>
         <img src="<%= project.photo %>">
-        <section>
+        <section class="writing">
             <p><strong>Description:</strong> <%= project.description %></p>
-            <p><strong>Possible uses</strong> <%= project.category %></p>
-    
-            <p><strong>status:</strong> <%= project.status %></p>
-            
+            <p><strong>Possible Uses:</strong> <%= project.category %></p>
+            <p><strong>Status:</strong> <%= project.status %></p>
         </section>
         <section class="actions">
             <button class="btn"><a href="/projects/<%= project._id %>/edit">Edit</a></button>
@@ -25,11 +23,24 @@
             <form method="POST" action="/projects/<%= project._id %>?_method=DELETE">
                 <input class="btn" type="submit" value="Delete" />
             </form>
-    
+            <p></p>
         </section>
         
     </div>
-
+    <footer>
+        <strong class="reviews">Reviews:</strong>
+            <% for (let review of project.reviews) { %>
+                <div classname="div-container"> 
+                    <p> <%= review.name %> </p>
+                    <p> <%= review.rating %> </p>
+                    <p> <%= review.comment %> </p>
+                    <form method="POST" action="/reviews/<%= project._id %>/<%= review._id %>?_method=DELETE">
+                        <input class="btn" type="submit" value="Delete" />
+                    </form>
+                    </div>
+                
+            <% } %>
+    </footer>
    
 </body>
 

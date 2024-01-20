@@ -125,11 +125,31 @@ app.delete('/projects/:id', (req, res) => {
     .then(() => res.redirect('/projects'))
 })
 
-//add review
+//add review page
 app.get('/reviews/new-rev/:projectId', (req, res) => {
-    db.Project.find(req.body)
+    db.Project.findById(req.params.projectId)
     .then(project => res.render('reviews/new-rev', {project: project}))
 })
+
+app.post('/reviews/:projectId/projects', function (req, res) {
+        db.Project.findById(req.params.projectId)
+        .then( (project) => {
+            project.reviews.push(req.body)
+             return project.save()
+           
+        }).then(project =>  res.redirect(`/projects/${project._id}`))
+})
+
+//delete review
+app.delete('/reviews/:projectId/:reviewId', function (req, res) {
+    db.Project.findOneAndUpdate(
+        { _id: req.params.projectId, 'reviews._id': req.params.reviewId },
+        { $pull: { reviews: { _id: req.params.reviewId } } },
+        { new: true }
+    )
+    .then(() => res.redirect(`/projects/${req.params.projectId}/`));
+    })
+
 
 app.post('/', (req, res) => {
     db.Project.create(req.body)

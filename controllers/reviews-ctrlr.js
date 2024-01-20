@@ -45,13 +45,13 @@ router.get('/:id', (req, res) => {
         .then(projects => {
             // format query results to appear in one object, 
             // rather than an object containing an array of one object
-            res.render(projects.applications[0])
+            res.render(projects.reviews[0])
         })
     });
 
 // New Route: GET localhost:3000/reviews/new
 router.get('/new/:projectId', (req, res) => {
-    res.send('You\'ve reached the new route. You\'ll be making a new application for pet ' + req.params.petId)
+    res.send('You\'ve reached the new route. You\'ll be making a new application for project ' + req.params.projectId)
 })
 
 

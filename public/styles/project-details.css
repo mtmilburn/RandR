@@ -1,11 +1,21 @@
+
+* {
+    
+    font-family: "Galada", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
 div {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
-    border: 1px solid #ccc;
+    border: 5px inset #ccc;
     padding: 20px;
     margin: 4vh auto;
-    box-shadow: 2px 2px 5px #ccc;
+    box-shadow: 2px 2px 12px 12px #ccc;
+    
+
 }
 
 img {
@@ -15,6 +25,8 @@ img {
     min-height: 150px;
     object-fit: cover;
     margin-bottom: 10px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px 5px whitesmoke;
 }
 
 .project-title {
@@ -46,6 +58,21 @@ strong {
     justify-content: space-between;
 }
 
-.btn a {
+.btn {
     color: black;
+    border-radius: 5;
+    padding: 10px;
+}
+
+.reviews {
+    display: block;
+    align-self: flex-start;
+    justify-self: center;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: larger;
 }
