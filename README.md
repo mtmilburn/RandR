@@ -1,11 +1,10 @@
    
    
-     <div id="description" align="center">
+    
 
   # R and R
 
-  ### [CLICK TO DEMO]()
-
+ 
 
   ## User Stories:
 
