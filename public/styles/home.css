@@ -1,10 +1,7 @@
 * {
-    
-        font-family: "Galada", cursive;
-        font-weight: 400;
-        font-style: normal;
-      
-      
+    font-family: "Galada", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .about {
@@ -94,6 +91,14 @@ figcaption {
 
 
 
-/* @media only screen and (min-width:500px){
-    img: none;
-} */
+@media only screen and (min-width:500px){
+    .project-grid, h2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+}

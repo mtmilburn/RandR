@@ -1,3 +1,10 @@
+h2, h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .project-person {
     height: 20vh;
     min-height: 175px;

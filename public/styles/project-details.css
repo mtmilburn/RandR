@@ -76,3 +76,16 @@ footer {
     justify-content: space-between;
     font-size: larger;
 }
+
+#reviews {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+@media only screen and (min-width:500px) {
+    footer {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+}
