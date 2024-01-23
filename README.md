@@ -18,7 +18,7 @@
 
    ## Next Steps:
 
-   To be honest since this app was made with the intent to help my wifes furniture business I will definiatly be revisiting it once I get more seasoned in my coding abilities.
+   In the short term I'll probably look to add a loj in for admin, and spice up the CSS. Afterwards, depending on where my wife want to take the business the functionality may vary.
 
   </div>
    
@@ -32,6 +32,8 @@
   | <h3>Project Details</h3> | <img src="https://i.imgur.com/KNCJUQc.png" width="700"> |
   | <h3>Review Form</h3> | <img src="https://i.imgur.com/JSEtRZT.png" width="700"> |
   | <h3>Edit Project Form</h3> | <img src="https://i.imgur.com/SDqZhvi.png" width="700"> |
+  | <h3>Project Route Table</h3> | <img src="https://i.imgur.com/28pxdSR.png" width="700"> |
+  | <h3>Reviews Routes Table</h3> | <img src="https://i.imgur.com/8ZmpsD4.png" width="700"> |
  
  ## Technologies Used
   ![MongoDB](https://img.shields.io/badge/-MongoDB-05122A?style=flat&logo=mongodb)
