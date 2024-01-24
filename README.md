@@ -61,5 +61,11 @@
   10. Afterwards add partials to make content like "Headers" and "Footers"
   11. Continue to add and build additional EJS and CSS as you develope the app.
 
-  The attached tables are a guide to help navigate from folder and files.
-  
+ * The attached tables are a guide to help navigate from folder and files.
+
+  Additionally, here are my wireframes which served as a very basic blueprint to how I wanted each page to look..
+
+  [Home Page](https://i.imgur.com/PnyaDNf.png)
+  [Details Page](https://i.imgur.com/Jnqr1Sf.png)
+  [Reviews Page](https://i.imgur.com/IsFE2nJ.png)
+  [Create Project](https://i.imgur.com/IjHck74.png)
